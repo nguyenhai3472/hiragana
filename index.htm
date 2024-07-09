@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana Recognizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop id="backgroundVideo">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        <h1>KIỂM TRA CÁCH ĐỌC CÁC KÍ TỰ HIRAGANA</h1>
+        <div id="hiraganaChar"></div>
+        <form id="hiraganaForm">
+            <input type="text" id="hiraganaInput" placeholder="Nhập cách phát âm kí tự Hiragana" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            <button type="submit">Kiểm tra</button>
+        </form>        
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

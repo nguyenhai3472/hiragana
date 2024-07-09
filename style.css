@@ -1,0 +1,146 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+}
+
+#backgroundVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 35px;
+    width: 400px;
+    z-index: 1;
+    transition: transform 0.3s ease-out;
+}
+
+.container::before {
+    content: "";
+    position: absolute; 
+    inset: -5px;
+    background: white;
+    filter: blur(31px);
+    transform: translate3d(0px,0px,-1px);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #202124;
+    font-weight: 500;
+}
+
+#hiraganaChar {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+#hiraganaChar.correct {
+    transform: scale(1.5);
+    color: #4CAF50;
+    opacity: 0;
+}
+
+#hiraganaChar.incorrect {
+    transform: rotate(-10deg);
+    color: #F44336;
+    opacity: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"] {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 70%;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 1rem;
+    padding: 12px 22px;
+    border: none;
+    background-color: #4285f4;
+    color: #fff;
+    border-radius: 200px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ae8;
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #202124;
+    font-weight: 500;
+}
+
+@keyframes correctAnimation {
+    0% {
+        transform: scale(1);
+        color: #202124;
+    }
+    50% {
+        transform: scale(1.5);
+        color: #4CAF50;
+    }
+    100% {
+        transform: scale(1);
+        color: #202124;
+    }
+}
+
+.animate-correct {
+    animation: correctAnimation 1s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0) rotate(0);
+    }
+    20%, 60% {
+        transform: translateX(-2px) rotate(-2deg);
+    }
+    40%, 80% {
+        transform: translateX(2px) rotate(2deg);
+    }
+}
+
+.animate-incorrect {
+    animation: shake 0.5s ease-in-out;
+}
